@@ -11,15 +11,12 @@ export class SunspecDeviceComponent implements OnInit {
 
   @Input() deviceId: number = 0;
 
-  device!: ModBusDevice;
+  device?: ModBusDevice;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    console.log(this.deviceId);
-
     this.http.get<ModBusDevice>('/assets/modbus-data/' + this.deviceId + '.json').subscribe(data => {
-      console.log(data);
       this.device = data;
     });
   }

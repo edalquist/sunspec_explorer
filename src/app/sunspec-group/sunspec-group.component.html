@@ -1,0 +1,16 @@
+<li>
+  <span style="font-weight: bold;">G: {{group.label || group.name}} ({{model.ID}})</span>
+  <span style="font-size: small;" *ngIf="group.desc"><br>({{group.desc}})</span>
+  <ul *ngFor="let pointDef of group?.points">
+    <li *ngIf="shouldShowPoint(pointDef)">
+      <span style="font-weight: bold;">P: {{pointDef.label || pointDef.name}}: </span>
+      <span>{{model[pointDef.name]}}</span>
+      <span style="font-size: small;" *ngIf="pointDef.desc"><br>({{pointDef.desc}})</span>
+    </li>
+  </ul>
+  <ng-container *ngFor="let groupDef of group?.groups">
+    <ul *ngFor="let groupModel of model[groupDef.name]">
+      <app-sunspec-group [group]="groupDef" [model]="groupModel"></app-sunspec-group>
+    </ul>
+  </ng-container>
+</li>

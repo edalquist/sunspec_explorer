@@ -1,5 +1,5 @@
-<li>Device: {{deviceId}}
+<li>Device {{deviceId}} ({{device?.did}})
   <ul *ngFor="let item of device?.models">
-    <li>{{item.ID}}</li>
+    <app-sunspec-model [model]="item"></app-sunspec-model>
   </ul>
 </li>
