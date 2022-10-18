@@ -2,6 +2,7 @@
 
 # Local Data
 src/assets/modbus-data/*.json
+src/assets/sunspec-models/
 
 # Compiled output
 /dist
